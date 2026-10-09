@@ -1,0 +1,10 @@
+---
+title: "American Beaver Party"
+---
+
+This is a website intended to serve as the online face of a new political part, the American Beaver Party. 
+
+
+```{r}
+1 + 1
+```

@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+My name is Forrest Stewart, and I am a Computer Information Systems major at Chico State University. 
+
+```{r}
+1 + 1
+```
