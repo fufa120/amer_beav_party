@@ -139,7 +139,7 @@ Every member has an equal voice. Sign in, share your idea, and vote on proposals
       const mine = myVotes[i.id];
       list.append(el("article", { class: "poll-card" },
         el("h3", {}, i.title),
-        el("p", { class: "poll-meta" }, `by ${i.author_name} · ${new Date(i.created_at).toLocaleDateString()}`),
+        el("p", { class: "poll-meta" }, `by ${i.author_name} · ${new Date(i.created_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}`),
         el("p", { class: "poll-body" }, i.body),
         el("div", { class: "poll-actions" },
           el("button", { class: "poll-btn up" + (mine === 1 ? " active" : ""),

@@ -296,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
       const mine = myVotes[i.id];
       list.append(el("article", { class: "poll-card" },
         el("h3", {}, i.title),
-        el("p", { class: "poll-meta" }, `by ${i.author_name} · ${new Date(i.created_at).toLocaleDateString()}`),
+        el("p", { class: "poll-meta" }, `by ${i.author_name} · ${new Date(i.created_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}`),
         el("p", { class: "poll-body" }, i.body),
         el("div", { class: "poll-actions" },
           el("button", { class: "poll-btn up" + (mine === 1 ? " active" : ""),
@@ -346,8 +346,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="results-at-a-glance" class="level2">
 <h2 class="anchored" data-anchor-id="results-at-a-glance">Results at a glance</h2>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>No published ideas yet.</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="poll_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><em>This chart updates each time the site is rebuilt.</em></p>
