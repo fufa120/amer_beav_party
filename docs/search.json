@@ -1,80 +1,52 @@
 [
   {
-    "objectID": "platform.html",
-    "href": "platform.html",
-    "title": "Our Platform",
+    "objectID": "poll.html",
+    "href": "poll.html",
+    "title": "Ideas & Polls",
     "section": "",
-    "text": "These are placeholder planks. Just templates until we decide on what to put in."
+    "text": "Every member has an equal voice. Sign in, share your idea, and vote on proposals from fellow members. Ideas are reviewed by moderators before publication."
   },
   {
-    "objectID": "platform.html#outline-1",
-    "href": "platform.html#outline-1",
-    "title": "Our Platform",
-    "section": "Outline 1",
-    "text": "Outline 1\nSample Title Sample text."
+    "objectID": "poll.html#results-at-a-glance",
+    "href": "poll.html#results-at-a-glance",
+    "title": "Ideas & Polls",
+    "section": "Results at a glance",
+    "text": "Results at a glance\n\n\nNo published ideas yet.\n\n\nThis chart updates each time the site is rebuilt.\n\nBy signing in you agree that your email is used only for login and that your display name appears with ideas you submit. Individual votes are never public."
   },
   {
-    "objectID": "platform.html#outline-2",
-    "href": "platform.html#outline-2",
-    "title": "Our Platform",
-    "section": "Outline 2",
-    "text": "Outline 2\nSample Title Sample text."
-  },
-  {
-    "objectID": "platform.html#outline-3",
-    "href": "platform.html#outline-3",
-    "title": "Our Platform",
-    "section": "Outline 3",
-    "text": "Outline 3\nSample Title Sample text."
-  },
-  {
-    "objectID": "platform.html#outline-4",
-    "href": "platform.html#outline-4",
-    "title": "Our Platform",
-    "section": "Outline 4",
-    "text": "Outline 4\nSample Title Sample text."
-  },
-  {
-    "objectID": "platform.html#outline-5",
-    "href": "platform.html#outline-5",
-    "title": "Our Platform",
-    "section": "Outline 5",
-    "text": "Outline 5\nSample Title Sample text.\n\n\n\n\n\n\n\nNoteHelp shape the platform\n\n\n\nWe’re a new party, and our platform is written with members. Join us and make your voice heard."
-  },
-  {
-    "objectID": "join.html",
-    "href": "join.html",
-    "title": "Contact Us",
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "News and Events",
     "section": "",
-    "text": "Fill out the form below to join the American Beaver Party and get updates on events and campaigns.\n\n  Loading…\n\nReplace YOUR_FORM_ID with your Google Form’s ID (Form → Send → &lt;&gt; embed tab)."
+    "text": "TipHow to set up the calendar (delete this box when done)\n\n\n\n\n\n\nOpen Google Calendar, click the gear icon, then Settings.\nUnder Settings for my calendars, pick the calendar (or create a new one named “American Beaver Party”).\nUnder Access permissions, check Make available to public.\nUnder Integrate calendar, copy the Calendar ID and paste it in place of YOUR_CALENDAR_ID%40group.calendar.google.com above (keep %40 in place of the @).\nChange ctz= to your time zone, and change mode=AGENDA to MONTH or WEEK if you prefer."
   },
   {
-    "objectID": "join.html#become-a-member",
-    "href": "join.html#become-a-member",
-    "title": "Contact Us",
+    "objectID": "news.html#upcoming-events",
+    "href": "news.html#upcoming-events",
+    "title": "News and Events",
     "section": "",
-    "text": "Fill out the form below to join the American Beaver Party and get updates on events and campaigns.\n\n  Loading…\n\nReplace YOUR_FORM_ID with your Google Form’s ID (Form → Send → &lt;&gt; embed tab)."
+    "text": "TipHow to set up the calendar (delete this box when done)\n\n\n\n\n\n\nOpen Google Calendar, click the gear icon, then Settings.\nUnder Settings for my calendars, pick the calendar (or create a new one named “American Beaver Party”).\nUnder Access permissions, check Make available to public.\nUnder Integrate calendar, copy the Calendar ID and paste it in place of YOUR_CALENDAR_ID%40group.calendar.google.com above (keep %40 in place of the @).\nChange ctz= to your time zone, and change mode=AGENDA to MONTH or WEEK if you prefer."
   },
   {
-    "objectID": "join.html#follow-us",
-    "href": "join.html#follow-us",
-    "title": "Contact Us",
-    "section": "Follow us",
-    "text": "Follow us\nStay connected and help spread the word."
+    "objectID": "news.html#latest-news",
+    "href": "news.html#latest-news",
+    "title": "News and Events",
+    "section": "Latest news",
+    "text": "Latest news\nPost announcements, press releases, and updates here.\n\nWelcome to the American Beaver Party\nOctober, 2026. We’re officially open for business. Stay tuned for events, platform updates, and ways to get involved."
   },
   {
-    "objectID": "join.html#support-us",
-    "href": "join.html#support-us",
-    "title": "Contact Us",
-    "section": "Support Us",
-    "text": "Support Us\nContributions help fund events, outreach, and organizing. Choose an option below.\n\n\n\n\n\n\nNoteSample Buttons\n\n\n\nSwap each # link for your real payment link.\n\n\n\n\n\nOne-time gift\nDonate $25\nDonate $50\nDonate $100\n\n\n\nMonthly\nGive $10/month\nGive $25/month\n\n\n\nOther ways\nPayPal\nVenmo\nMail a check"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The American Beaver Party",
+    "section": "",
+    "text": "Industrious. Resilient. Community-minded.\nJoin the Party"
   },
   {
-    "objectID": "join.html#volunteer",
-    "href": "join.html#volunteer",
-    "title": "Contact Us",
-    "section": "Volunteer",
-    "text": "Volunteer\nWant to give time instead of money? Email us at americanbeaverparty@gmail.com.\n\nPaid for by the American Beaver Party. Contributions are not tax-deductible. Add any additional legal disclaimers required in your state here."
+    "objectID": "index.html#what-we-stand-for",
+    "href": "index.html#what-we-stand-for",
+    "title": "The American Beaver Party",
+    "section": "What we stand for",
+    "text": "What we stand for\n\n\n\nMain Values\nSample text.\n\n\n\nMain Values\nSample text.\n\n\n\nMain Values\nSample text."
   },
   {
     "objectID": "about.html",
@@ -119,38 +91,80 @@
     "text": "Get involved\nReady to help build? Join the party or check the events calendar."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "The American Beaver Party",
+    "objectID": "join.html",
+    "href": "join.html",
+    "title": "Contact Us",
     "section": "",
-    "text": "Industrious. Resilient. Community-minded.\nJoin the Party"
+    "text": "Fill out the form below to join the American Beaver Party and get updates on events and campaigns.\n\n  Loading…\n\nReplace YOUR_FORM_ID with your Google Form’s ID (Form → Send → &lt;&gt; embed tab)."
   },
   {
-    "objectID": "index.html#what-we-stand-for",
-    "href": "index.html#what-we-stand-for",
-    "title": "The American Beaver Party",
-    "section": "What we stand for",
-    "text": "What we stand for\n\n\n\nMain Values\nSample text.\n\n\n\nMain Values\nSample text.\n\n\n\nMain Values\nSample text."
-  },
-  {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": "News and Events",
+    "objectID": "join.html#become-a-member",
+    "href": "join.html#become-a-member",
+    "title": "Contact Us",
     "section": "",
-    "text": "TipHow to set up the calendar (delete this box when done)\n\n\n\n\n\n\nOpen Google Calendar, click the gear icon, then Settings.\nUnder Settings for my calendars, pick the calendar (or create a new one named “American Beaver Party”).\nUnder Access permissions, check Make available to public.\nUnder Integrate calendar, copy the Calendar ID and paste it in place of YOUR_CALENDAR_ID%40group.calendar.google.com above (keep %40 in place of the @).\nChange ctz= to your time zone, and change mode=AGENDA to MONTH or WEEK if you prefer."
+    "text": "Fill out the form below to join the American Beaver Party and get updates on events and campaigns.\n\n  Loading…\n\nReplace YOUR_FORM_ID with your Google Form’s ID (Form → Send → &lt;&gt; embed tab)."
   },
   {
-    "objectID": "news.html#upcoming-events",
-    "href": "news.html#upcoming-events",
-    "title": "News and Events",
+    "objectID": "join.html#follow-us",
+    "href": "join.html#follow-us",
+    "title": "Contact Us",
+    "section": "Follow us",
+    "text": "Follow us\nStay connected and help spread the word."
+  },
+  {
+    "objectID": "join.html#support-us",
+    "href": "join.html#support-us",
+    "title": "Contact Us",
+    "section": "Support Us",
+    "text": "Support Us\nContributions help fund events, outreach, and organizing. Choose an option below.\n\n\n\n\n\n\nNoteSample Buttons\n\n\n\nSwap each # link for your real payment link.\n\n\n\n\n\nOne-time gift\nDonate $25\nDonate $50\nDonate $100\n\n\n\nMonthly\nGive $10/month\nGive $25/month\n\n\n\nOther ways\nPayPal\nVenmo\nMail a check"
+  },
+  {
+    "objectID": "join.html#volunteer",
+    "href": "join.html#volunteer",
+    "title": "Contact Us",
+    "section": "Volunteer",
+    "text": "Volunteer\nWant to give time instead of money? Email us at americanbeaverparty@gmail.com.\n\nPaid for by the American Beaver Party. Contributions are not tax-deductible. Add any additional legal disclaimers required in your state here."
+  },
+  {
+    "objectID": "platform.html",
+    "href": "platform.html",
+    "title": "Our Platform",
     "section": "",
-    "text": "TipHow to set up the calendar (delete this box when done)\n\n\n\n\n\n\nOpen Google Calendar, click the gear icon, then Settings.\nUnder Settings for my calendars, pick the calendar (or create a new one named “American Beaver Party”).\nUnder Access permissions, check Make available to public.\nUnder Integrate calendar, copy the Calendar ID and paste it in place of YOUR_CALENDAR_ID%40group.calendar.google.com above (keep %40 in place of the @).\nChange ctz= to your time zone, and change mode=AGENDA to MONTH or WEEK if you prefer."
+    "text": "These are placeholder planks. Just templates until we decide on what to put in."
   },
   {
-    "objectID": "news.html#latest-news",
-    "href": "news.html#latest-news",
-    "title": "News and Events",
-    "section": "Latest news",
-    "text": "Latest news\nPost announcements, press releases, and updates here.\n\nWelcome to the American Beaver Party\nOctober, 2026. We’re officially open for business. Stay tuned for events, platform updates, and ways to get involved."
+    "objectID": "platform.html#outline-1",
+    "href": "platform.html#outline-1",
+    "title": "Our Platform",
+    "section": "Outline 1",
+    "text": "Outline 1\nSample Title Sample text."
+  },
+  {
+    "objectID": "platform.html#outline-2",
+    "href": "platform.html#outline-2",
+    "title": "Our Platform",
+    "section": "Outline 2",
+    "text": "Outline 2\nSample Title Sample text."
+  },
+  {
+    "objectID": "platform.html#outline-3",
+    "href": "platform.html#outline-3",
+    "title": "Our Platform",
+    "section": "Outline 3",
+    "text": "Outline 3\nSample Title Sample text."
+  },
+  {
+    "objectID": "platform.html#outline-4",
+    "href": "platform.html#outline-4",
+    "title": "Our Platform",
+    "section": "Outline 4",
+    "text": "Outline 4\nSample Title Sample text."
+  },
+  {
+    "objectID": "platform.html#outline-5",
+    "href": "platform.html#outline-5",
+    "title": "Our Platform",
+    "section": "Outline 5",
+    "text": "Outline 5\nSample Title Sample text.\n\n\n\n\n\n\n\nNoteHelp shape the platform\n\n\n\nWe’re a new party, and our platform is written with members. Join us and make your voice heard."
   }
 ]

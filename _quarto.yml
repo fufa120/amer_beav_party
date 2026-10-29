@@ -13,6 +13,7 @@ website:
       - platform.qmd
       - news.qmd
       - join.qmd
+      - poll.qmd
   page-footer:
     background: "#5b3a1e"
     center: |
