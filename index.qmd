@@ -1,10 +1,28 @@
 ---
-title: "American Beaver Party"
+title: "The American Beaver Party"
+page-layout: full
 ---
 
-This is a website intended to serve as the online face of a new political part, the American Beaver Party. 
+::: {.hero}
+# Sample hook
+*Industrious. Resilient. Community-minded.*
 
+[Join the Party](join.qmd){.btn .btn-primary .btn-lg}
+:::
 
-```{r}
-1 + 1
-```
+## What we stand for
+
+::: {.columns}
+::: {.column width="33%"}
+### Main Values
+Sample text.
+:::
+::: {.column width="33%"}
+### Main Values
+Sample text.
+:::
+::: {.column width="33%"}
+### Main Values
+Sample text.
+:::
+:::

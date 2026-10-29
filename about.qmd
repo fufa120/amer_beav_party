@@ -1,9 +1,32 @@
 ---
-title: "About"
+title: "About the American Beaver Party"
 ---
 
-My name is Forrest Stewart, and I am a Computer Information Systems major at Chico State University. 
+## Who we are
 
-```{r}
-1 + 1
-```
+Introduce party and main goals
+
+## Our values
+
+- **Sample value** Sample Text
+- **Sample value** Sample Text
+- **Sample value** Sample Text
+- **Sample value** Sample Text
+
+## Our mission
+
+*Add mission statement here*
+
+## Leadership
+
+*Introduce team here.*
+
+| Name | Role |
+|------|------|
+| *David Simmen* | *Founder* |
+| *Forrest Stewart* | *Software Technician* |
+
+## Get involved
+
+Ready to help build? [Join the party](join.qmd) or check the 
+[events calendar](news.qmd).

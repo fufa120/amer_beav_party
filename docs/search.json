@@ -1,72 +1,156 @@
 [
   {
-    "objectID": "ae01-unvotes.html",
-    "href": "ae01-unvotes.html",
-    "title": "United Nations Votes",
+    "objectID": "platform.html",
+    "href": "platform.html",
+    "title": "Our Platform",
     "section": "",
-    "text": "How do various countries vote in the United Nations General Assembly, how have their voting patterns evolved throughout time, and how similarly or differently do they view certain issues? Answering these questions (at a high level) is the focus of this analysis.\n\n\nWe will use the tidyverse, lubridate, and scales packages for data wrangling and visualization, and the DT package for interactive display of tabular output, and the unvotes package for the data.\n\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(scales)\nlibrary(DT)\nlibrary(unvotes)\n\n\n\n\nThe data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunv &lt;- unvotes::un_votes %&gt;%\n  inner_join(un_roll_calls, by = \"rcid\") %&gt;%\n  inner_join(un_roll_call_issues, by = \"rcid\")\n\nWarning in inner_join(., un_roll_call_issues, by = \"rcid\"): Detected an unexpected many-to-many relationship between `x` and `y`.\nℹ Row 382 of `x` matches multiple rows in `y`.\nℹ Row 3009 of `y` matches multiple rows in `x`.\nℹ If a many-to-many relationship is expected, set `relationship =\n  \"many-to-many\"` to silence this warning.",
-    "crumbs": [
-      "Home",
-      "Assignments",
-      "United Nations Votes"
-    ]
+    "text": "These are placeholder planks. Just templates until we decide on what to put in."
   },
   {
-    "objectID": "ae01-unvotes.html#packages",
-    "href": "ae01-unvotes.html#packages",
-    "title": "United Nations Votes",
-    "section": "",
-    "text": "We will use the tidyverse, lubridate, and scales packages for data wrangling and visualization, and the DT package for interactive display of tabular output, and the unvotes package for the data.\n\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(scales)\nlibrary(DT)\nlibrary(unvotes)",
-    "crumbs": [
-      "Home",
-      "Assignments",
-      "United Nations Votes"
-    ]
+    "objectID": "platform.html#outline-1",
+    "href": "platform.html#outline-1",
+    "title": "Our Platform",
+    "section": "Outline 1",
+    "text": "Outline 1\nSample Title Sample text."
   },
   {
-    "objectID": "ae01-unvotes.html#data",
-    "href": "ae01-unvotes.html#data",
-    "title": "United Nations Votes",
-    "section": "",
-    "text": "The data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunv &lt;- unvotes::un_votes %&gt;%\n  inner_join(un_roll_calls, by = \"rcid\") %&gt;%\n  inner_join(un_roll_call_issues, by = \"rcid\")\n\nWarning in inner_join(., un_roll_call_issues, by = \"rcid\"): Detected an unexpected many-to-many relationship between `x` and `y`.\nℹ Row 382 of `x` matches multiple rows in `y`.\nℹ Row 3009 of `y` matches multiple rows in `x`.\nℹ If a many-to-many relationship is expected, set `relationship =\n  \"many-to-many\"` to silence this warning.",
-    "crumbs": [
-      "Home",
-      "Assignments",
-      "United Nations Votes"
-    ]
+    "objectID": "platform.html#outline-2",
+    "href": "platform.html#outline-2",
+    "title": "Our Platform",
+    "section": "Outline 2",
+    "text": "Outline 2\nSample Title Sample text."
   },
   {
-    "objectID": "ae01-unvotes.html#references",
-    "href": "ae01-unvotes.html#references",
-    "title": "United Nations Votes",
-    "section": "References",
-    "text": "References\n\nDavid Robinson (2017). unvotes: United Nations General Assembly Voting Data. R package version 0.2.0.\nErik Voeten “Data and Analyses of Voting in the UN General Assembly” Routledge Handbook of International Organization, edited by Bob Reinalda (published May 27, 2013).\nMuch of the analysis has been modeled on the examples presented in the unvotes package vignette.",
-    "crumbs": [
-      "Home",
-      "Assignments",
-      "United Nations Votes"
-    ]
+    "objectID": "platform.html#outline-3",
+    "href": "platform.html#outline-3",
+    "title": "Our Platform",
+    "section": "Outline 3",
+    "text": "Outline 3\nSample Title Sample text."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "American Beaver Party",
+    "objectID": "platform.html#outline-4",
+    "href": "platform.html#outline-4",
+    "title": "Our Platform",
+    "section": "Outline 4",
+    "text": "Outline 4\nSample Title Sample text."
+  },
+  {
+    "objectID": "platform.html#outline-5",
+    "href": "platform.html#outline-5",
+    "title": "Our Platform",
+    "section": "Outline 5",
+    "text": "Outline 5\nSample Title Sample text.\n\n\n\n\n\n\n\nNoteHelp shape the platform\n\n\n\nWe’re a new party, and our platform is written with members. Join us and make your voice heard."
+  },
+  {
+    "objectID": "join.html",
+    "href": "join.html",
+    "title": "Contact Us",
     "section": "",
-    "text": "This is a website intended to serve as the online face of a new political part, the American Beaver Party.\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "Home",
-      "American Beaver Party"
-    ]
+    "text": "Fill out the form below to join the American Beaver Party and get updates on events and campaigns.\n\n  Loading…\n\nReplace YOUR_FORM_ID with your Google Form’s ID (Form → Send → &lt;&gt; embed tab)."
+  },
+  {
+    "objectID": "join.html#become-a-member",
+    "href": "join.html#become-a-member",
+    "title": "Contact Us",
+    "section": "",
+    "text": "Fill out the form below to join the American Beaver Party and get updates on events and campaigns.\n\n  Loading…\n\nReplace YOUR_FORM_ID with your Google Form’s ID (Form → Send → &lt;&gt; embed tab)."
+  },
+  {
+    "objectID": "join.html#follow-us",
+    "href": "join.html#follow-us",
+    "title": "Contact Us",
+    "section": "Follow us",
+    "text": "Follow us\nStay connected and help spread the word."
+  },
+  {
+    "objectID": "join.html#support-us",
+    "href": "join.html#support-us",
+    "title": "Contact Us",
+    "section": "Support Us",
+    "text": "Support Us\nContributions help fund events, outreach, and organizing. Choose an option below.\n\n\n\n\n\n\nNoteSample Buttons\n\n\n\nSwap each # link for your real payment link.\n\n\n\n\n\nOne-time gift\nDonate $25\nDonate $50\nDonate $100\n\n\n\nMonthly\nGive $10/month\nGive $25/month\n\n\n\nOther ways\nPayPal\nVenmo\nMail a check"
+  },
+  {
+    "objectID": "join.html#volunteer",
+    "href": "join.html#volunteer",
+    "title": "Contact Us",
+    "section": "Volunteer",
+    "text": "Volunteer\nWant to give time instead of money? Email us at americanbeaverparty@gmail.com.\n\nPaid for by the American Beaver Party. Contributions are not tax-deductible. Add any additional legal disclaimers required in your state here."
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About the American Beaver Party",
     "section": "",
-    "text": "My name is Forrest Stewart, and I am a Computer Information Systems major at Chico State University.\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "Home",
-      "About"
-    ]
+    "text": "Introduce party and main goals"
+  },
+  {
+    "objectID": "about.html#who-we-are",
+    "href": "about.html#who-we-are",
+    "title": "About the American Beaver Party",
+    "section": "",
+    "text": "Introduce party and main goals"
+  },
+  {
+    "objectID": "about.html#our-values",
+    "href": "about.html#our-values",
+    "title": "About the American Beaver Party",
+    "section": "Our values",
+    "text": "Our values\n\nSample value Sample Text\nSample value Sample Text\nSample value Sample Text\nSample value Sample Text"
+  },
+  {
+    "objectID": "about.html#our-mission",
+    "href": "about.html#our-mission",
+    "title": "About the American Beaver Party",
+    "section": "Our mission",
+    "text": "Our mission\nAdd mission statement here"
+  },
+  {
+    "objectID": "about.html#leadership",
+    "href": "about.html#leadership",
+    "title": "About the American Beaver Party",
+    "section": "Leadership",
+    "text": "Leadership\nIntroduce team here.\n\n\n\nName\nRole\n\n\n\n\nDavid Simmen\nFounder\n\n\nForrest Stewart\nSoftware Technician"
+  },
+  {
+    "objectID": "about.html#get-involved",
+    "href": "about.html#get-involved",
+    "title": "About the American Beaver Party",
+    "section": "Get involved",
+    "text": "Get involved\nReady to help build? Join the party or check the events calendar."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The American Beaver Party",
+    "section": "",
+    "text": "Industrious. Resilient. Community-minded.\nJoin the Party"
+  },
+  {
+    "objectID": "index.html#what-we-stand-for",
+    "href": "index.html#what-we-stand-for",
+    "title": "The American Beaver Party",
+    "section": "What we stand for",
+    "text": "What we stand for\n\n\n\nMain Values\nSample text.\n\n\n\nMain Values\nSample text.\n\n\n\nMain Values\nSample text."
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "News and Events",
+    "section": "",
+    "text": "TipHow to set up the calendar (delete this box when done)\n\n\n\n\n\n\nOpen Google Calendar, click the gear icon, then Settings.\nUnder Settings for my calendars, pick the calendar (or create a new one named “American Beaver Party”).\nUnder Access permissions, check Make available to public.\nUnder Integrate calendar, copy the Calendar ID and paste it in place of YOUR_CALENDAR_ID%40group.calendar.google.com above (keep %40 in place of the @).\nChange ctz= to your time zone, and change mode=AGENDA to MONTH or WEEK if you prefer."
+  },
+  {
+    "objectID": "news.html#upcoming-events",
+    "href": "news.html#upcoming-events",
+    "title": "News and Events",
+    "section": "",
+    "text": "TipHow to set up the calendar (delete this box when done)\n\n\n\n\n\n\nOpen Google Calendar, click the gear icon, then Settings.\nUnder Settings for my calendars, pick the calendar (or create a new one named “American Beaver Party”).\nUnder Access permissions, check Make available to public.\nUnder Integrate calendar, copy the Calendar ID and paste it in place of YOUR_CALENDAR_ID%40group.calendar.google.com above (keep %40 in place of the @).\nChange ctz= to your time zone, and change mode=AGENDA to MONTH or WEEK if you prefer."
+  },
+  {
+    "objectID": "news.html#latest-news",
+    "href": "news.html#latest-news",
+    "title": "News and Events",
+    "section": "Latest news",
+    "text": "Latest news\nPost announcements, press releases, and updates here.\n\nWelcome to the American Beaver Party\nOctober, 2026. We’re officially open for business. Stay tuned for events, platform updates, and ways to get involved."
   }
 ]

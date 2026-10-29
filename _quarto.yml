@@ -5,27 +5,39 @@ project:
 website:
   title: "The American Beaver Party"
   navbar:
+    background: '#5b3a1e'
     left:
       - href: index.qmd
         text: Home
       - about.qmd
-      - text: "Assignments"
-        menu:
-          - ae01-unvotes.qmd
-  sidebar:
-    style: "docked"
-    contents: 
-      - index.qmd
-      - about.qmd
-      - section: "Assignments"
-        contents:
-          - ae01-unvotes.qmd
+      - platform.qmd
+      - news.qmd
+      - join.qmd
+  page-footer:
+    background: "#5b3a1e"
+    center: |
+      <div class="social-icons">
+        <a href="https://x.com/YOURHANDLE" aria-label="X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://YOURNAME.substack.com" aria-label="Substack" target="_blank" rel="noopener"><i class="fa-brands fa-substack"></i></a>
+        <a href="https://instagram.com/YOURHANDLE" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://reddit.com/r/YOURSUB" aria-label="Reddit" target="_blank" rel="noopener"><i class="fa-brands fa-reddit-alien"></i></a>
+        <a href="https://discord.gg/YOURINVITE" aria-label="Discord" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://facebook.com/YOURPAGE" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://youtube.com/@YOURHANDLE" aria-label="YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://tiktok.com/@YOURHANDLE" aria-label="TikTok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://threads.net/@YOURHANDLE" aria-label="Threads" target="_blank" rel="noopener"><i class="fa-brands fa-threads"></i></a>
+      </div>
+      <div class="footer-note">© 2026 American Beaver Party</div>
+  
         
 format:
   html:
     theme:
       - sandstone
       - brand
+    include-in-header:
+      text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     css: styles.css
     toc: true
 
