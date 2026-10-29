@@ -1,0 +1,34 @@
+---
+title: "Our Platform"
+---
+
+*These are placeholder planks. Just templates until we decide on what to put in.*
+
+## Outline 1
+
+**Sample Title** Sample text.
+
+## Outline 2
+
+**Sample Title** Sample text.
+
+## Outline 3
+
+**Sample Title** Sample text.
+
+## Outline 4
+
+**Sample Title** Sample text.
+
+## Outline 5
+
+**Sample Title** Sample text.
+
+---
+
+::: {.callout-note}
+## Help shape the platform
+We're a new party, and our platform is written with members. 
+[Join us](join.qmd) and make your voice heard.
+:::
+

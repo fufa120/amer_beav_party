@@ -1,0 +1,236 @@
+---
+title: "Ideas & Polls"
+page-layout: article
+---
+
+Every member has an equal voice. Sign in, share your idea, and vote on proposals from fellow members. Ideas are reviewed by moderators before publication.
+
+```{=html}
+<style>
+  .poll-app { max-width: 820px; margin: 0 auto; }
+  .poll-card { background: #fff; border: 1px solid #e3d6c6; border-radius: 12px;
+               padding: 1.25rem 1.5rem; margin: 1rem 0;
+               box-shadow: 0 1px 3px rgba(91, 58, 30, 0.08); }
+  .poll-card h3 { margin-top: 0; font-size: 1.25rem; color: #5b3a1e; }
+  .poll-meta, .poll-note { color: #7a6a5a; font-size: 0.9rem; }
+  .poll-body { white-space: pre-wrap; }
+  .poll-input { display: block; width: 100%; box-sizing: border-box; margin: 0.5rem 0;
+                padding: 0.6rem 0.8rem; border: 1px solid #cdbba5; border-radius: 8px;
+                font: inherit; }
+  .poll-input:focus { outline: 2px solid #1f6f8b; border-color: #1f6f8b; }
+  .poll-btn { border: 1px solid #cdbba5; background: #fff; border-radius: 999px;
+              padding: 0.4rem 1rem; font-weight: 600; cursor: pointer; margin-right: 0.4rem; }
+  .poll-btn:hover { background: #f4e9dc; }
+  .poll-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .poll-btn.primary { background: #5b3a1e; border-color: #5b3a1e; color: #fff; }
+  .poll-btn.primary:hover { background: #8a5a2b; }
+  .poll-btn.up.active   { background: #2e7d4f; border-color: #2e7d4f; color: #fff; }
+  .poll-btn.down.active { background: #b23b2e; border-color: #b23b2e; color: #fff; }
+  .poll-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.75rem; }
+  .poll-score { margin-left: auto; font-weight: 700; color: #5b3a1e; }
+  .poll-toolbar { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; }
+  .poll-msg { min-height: 1.5rem; font-weight: 600; }
+  .poll-msg.ok { color: #2e7d4f; }
+  .poll-msg.error { color: #b23b2e; }
+</style>
+
+<div class="poll-app">
+  <div id="poll-auth" class="poll-card"></div>
+  <div id="poll-submit" class="poll-card" hidden></div>
+  <div id="poll-msg" class="poll-msg" role="status" aria-live="polite"></div>
+  <div class="poll-toolbar">
+    <strong>Member ideas</strong>
+    <select id="poll-sort" class="poll-input" style="width:auto; margin:0;" aria-label="Sort ideas">
+      <option value="score">Top rated</option>
+      <option value="new">Newest</option>
+    </select>
+  </div>
+  <div id="poll-list"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(() => {
+  const sb = supabase.createClient("https://YOURPROJECT.supabase.co", "YOUR_PUBLIC_ANON_KEY");
+  const $ = (id) => document.getElementById(id);
+  let session = null, myVotes = {}, sortBy = "score";
+
+  // Builds DOM nodes; strings are always inserted as plain text, never as HTML.
+  function el(tag, props = {}, ...kids) {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(props)) {
+      if (k === "class") n.className = v;
+      else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+      else n.setAttribute(k, v);
+    }
+    kids.flat().forEach((c) => n.append(c));
+    return n;
+  }
+
+  function showMsg(text, kind = "") {
+    const m = $("poll-msg");
+    m.textContent = text;
+    m.className = "poll-msg " + kind;
+  }
+
+  function renderAuth() {
+    const box = $("poll-auth");
+    box.replaceChildren();
+    if (session) {
+      box.append(
+        el("span", {}, "Signed in as ", el("strong", {}, session.user.email), "  "),
+        el("button", { class: "poll-btn", onclick: () => sb.auth.signOut() }, "Sign out")
+      );
+      return;
+    }
+    const email = el("input", { type: "email", class: "poll-input", placeholder: "you@example.com",
+                                "aria-label": "Email address", autocomplete: "email" });
+    box.append(
+      el("p", {}, "Sign in with your email to submit ideas and vote. We'll send a one-time link, so no password is needed."),
+      email,
+      el("button", { class: "poll-btn primary", onclick: async () => {
+        const addr = email.value.trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(addr)) return showMsg("Please enter a valid email address.", "error");
+        const { error } = await sb.auth.signInWithOtp({
+          email: addr, options: { emailRedirectTo: location.origin + location.pathname }
+        });
+        showMsg(error ? "We couldn't send the link. Please try again shortly."
+                      : "Check your inbox for your sign-in link.", error ? "error" : "ok");
+      }}, "Send sign-in link")
+    );
+  }
+
+  function renderSubmit() {
+    const box = $("poll-submit");
+    box.replaceChildren();
+    box.hidden = !session;
+    if (!session) return;
+    const name  = el("input", { class: "poll-input", maxlength: 40, placeholder: "Display name (shown publicly)", "aria-label": "Display name" });
+    const title = el("input", { class: "poll-input", maxlength: 120, placeholder: "Idea title", "aria-label": "Idea title" });
+    const body  = el("textarea", { class: "poll-input", rows: 5, maxlength: 2000,
+                                   placeholder: "Describe your idea (20–2,000 characters)", "aria-label": "Idea description" });
+    const btn = el("button", { class: "poll-btn primary", onclick: async () => {
+      const n = name.value.trim(), t = title.value.trim(), b = body.value.trim();
+      if (n.length < 2 || t.length < 5 || b.length < 20)
+        return showMsg("Please add a display name (2+ characters), a title (5+), and a description (20+).", "error");
+      btn.disabled = true;
+      const { error } = await sb.from("ideas").insert({ author_name: n, title: t, body: b });
+      btn.disabled = false;
+      if (error) return showMsg(
+        /limit/i.test(error.message) ? "You've reached the daily limit for new ideas. Please try again tomorrow."
+                                     : "Your idea couldn't be submitted. Please try again.", "error");
+      title.value = ""; body.value = "";
+      showMsg("Thank you! Your idea was submitted and will appear after review.", "ok");
+    }}, "Submit idea");
+    box.append(
+      el("h3", {}, "Share an idea"), name, title, body, btn,
+      el("p", { class: "poll-note" }, "All ideas are reviewed by moderators before they appear.")
+    );
+  }
+
+  function renderList(ideas) {
+    const list = $("poll-list");
+    list.replaceChildren();
+    if (!ideas.length) {
+      list.append(el("p", { class: "poll-note" }, "No ideas have been published yet. Be the first to submit one!"));
+      return;
+    }
+    ideas.forEach((i) => {
+      const mine = myVotes[i.id];
+      list.append(el("article", { class: "poll-card" },
+        el("h3", {}, i.title),
+        el("p", { class: "poll-meta" }, `by ${i.author_name} · ${new Date(i.created_at).toLocaleDateString()}`),
+        el("p", { class: "poll-body" }, i.body),
+        el("div", { class: "poll-actions" },
+          el("button", { class: "poll-btn up" + (mine === 1 ? " active" : ""),
+                         "aria-pressed": String(mine === 1), onclick: () => vote(i.id, 1) }, `▲ Support (${i.up})`),
+          el("button", { class: "poll-btn down" + (mine === -1 ? " active" : ""),
+                         "aria-pressed": String(mine === -1), onclick: () => vote(i.id, -1) }, `▼ Oppose (${i.down})`),
+          el("span", { class: "poll-score" }, `Net ${i.score > 0 ? "+" : ""}${i.score}`)
+        )
+      ));
+    });
+  }
+
+  async function load() {
+    let q = sb.from("public_ideas").select("*");
+    q = sortBy === "new" ? q.order("created_at", { ascending: false })
+                         : q.order("score", { ascending: false }).order("created_at", { ascending: false });
+    const { data, error } = await q.limit(100);
+    if (error) return showMsg("Ideas couldn't be loaded right now.", "error");
+    myVotes = {};
+    if (session) {
+      const { data: mine } = await sb.from("votes").select("idea_id,value");
+      (mine || []).forEach((v) => { myVotes[v.idea_id] = v.value; });
+    }
+    renderList(data || []);
+  }
+
+  async function vote(id, value) {
+    if (!session) return showMsg("Please sign in to vote.", "error");
+    const { error } = myVotes[id] === value
+      ? await sb.from("votes").delete().eq("idea_id", id)   // clicking again retracts
+      : await sb.from("votes").upsert({ idea_id: id, user_id: session.user.id, value },
+                                      { onConflict: "idea_id,user_id" });
+    showMsg(error ? "Your vote couldn't be recorded." : "", error ? "error" : "");
+    await load();
+  }
+
+  async function refresh() { renderAuth(); renderSubmit(); await load(); }
+
+  $("poll-sort").addEventListener("change", (e) => { sortBy = e.target.value; load(); });
+
+  sb.auth.onAuthStateChange((event, s) => {
+    session = s;
+    if (["INITIAL_SESSION", "SIGNED_IN", "SIGNED_OUT"].includes(event)) setTimeout(refresh, 0);
+  });
+})();
+</script>
+```
+
+## Results at a glance
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(httr2)
+library(tidyverse)
+
+key  <- "sb_publishable_-BTZxrU2m7rJMwiIB7a_tA_PSgqWBNp"
+base <- "https://kyczmkoyitspgyaqlqaj.supabase.co/rest/v1/public_ideas"
+
+resp <- request(base) |>
+  req_url_query(select = "id,title,up,down,score", order = "score.desc", limit = 10) |>
+  req_headers(apikey = key) |>
+  req_error(is_error = \(r) FALSE) |>
+  req_perform()
+
+if (resp_status(resp) != 200) {
+  cat("Results are temporarily unavailable.")
+} else {
+  ideas <- resp_body_json(resp, simplifyVector = TRUE)
+
+  if (length(ideas) == 0) {
+    cat("No published ideas yet.")
+  } else {
+    p <- ideas |>
+      mutate(label = str_trunc(title, 45), down = -down) |>
+      pivot_longer(c(up, down), names_to = "vote", values_to = "n") |>
+      ggplot(aes(x = n, y = fct_reorder(label, score), fill = vote)) +
+      geom_col() +
+      scale_fill_manual(values = c(up = "#2e7d4f", down = "#b23b2e"),
+                        labels = c(up = "Support", down = "Oppose"), name = NULL) +
+      labs(x = "Votes", y = NULL, title = "Top ideas") +
+      theme_minimal(base_size = 13) +
+      theme(legend.position = "bottom")
+    print(p)
+  }
+}
+```
+
+*This chart updates each time the site is rebuilt.*
+
+---
+
+*By signing in you agree that your email is used only for login and that your display name appears with ideas you submit. Individual votes are never public.*

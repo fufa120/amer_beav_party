@@ -1,0 +1,109 @@
+---
+title: "Contact Us"
+---
+
+## Become a member
+
+Fill out the form below to join the American Beaver Party and get updates on 
+events and campaigns.
+
+```{=html}
+<iframe
+  src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
+  style="border: 0; width: 100%; max-width: 700px; height: 700px; display: block; margin: 0 auto;"
+  title="Join the American Beaver Party">
+  Loading…
+</iframe>
+```
+
+*Replace `YOUR_FORM_ID` with your Google Form's ID (Form → Send → `<>` embed tab).*
+
+## Follow us
+
+Stay connected and help spread the word.
+
+```{=html}
+<style>
+  .social-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .social-row a {
+    font-size: 3.5rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .social-row a:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
+  }
+  .social-x         { color: #000000; }
+  .social-substack  { color: #FF6719; }
+  .social-instagram { color: #E4405F; }
+  .social-reddit    { color: #FF4500; }
+  .social-discord   { color: #5865F2; }
+  .social-facebook  { color: #1877F2; }
+  .social-youtube   { color: #FF0000; }
+  .social-tiktok    { color: #000000; }
+  .social-threads   { color: #000000; }
+</style>
+
+<div class="social-row">
+  <a class="social-x" href="#" aria-label="X" title="X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+  <a class="social-substack" href="#" aria-label="Substack" title="Substack" target="_blank" rel="noopener"><i class="fa-brands fa-substack"></i></a>
+  <a class="social-instagram" href="#" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+  <a class="social-reddit" href="#" aria-label="Reddit" title="Reddit" target="_blank" rel="noopener"><i class="fa-brands fa-reddit-alien"></i></a>
+  <a class="social-discord" href="#" aria-label="Discord" title="Discord" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i></a>
+  <a class="social-facebook" href="#" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+  <a class="social-youtube" href="#" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+  <a class="social-tiktok" href="#" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
+  <a class="social-threads" href="#" aria-label="Threads" title="Threads" target="_blank" rel="noopener"><i class="fa-brands fa-threads"></i></a>
+</div>
+```
+
+## Support Us
+
+Contributions help fund events, outreach, and organizing. Choose an option below.
+
+::: {.callout-note}
+## Sample Buttons
+Swap each `#` link for your real payment link.
+:::
+
+::: {.columns}
+
+::: {.column width="33%"}
+### One-time gift
+[Donate \$25](#){.btn .btn-primary}  
+[Donate \$50](#){.btn .btn-primary}  
+[Donate \$100](#){.btn .btn-primary}
+:::
+
+::: {.column width="33%"}
+### Monthly
+[Give \$10/month](#){.btn .btn-success}  
+[Give \$25/month](#){.btn .btn-success}
+:::
+
+::: {.column width="33%"}
+### Other ways
+[PayPal](#){.btn .btn-outline-primary}  
+[Venmo](#){.btn .btn-outline-primary}  
+[Mail a check](#){.btn .btn-outline-primary}
+:::
+
+:::
+
+## Volunteer
+
+Want to give time instead of money? Email us at 
+[americanbeaverparty@gmail.com](mailto:americanbeaverparty@gmail.com).
+
+---
+
+*Paid for by the American Beaver Party. Contributions are not tax-deductible. 
+Add any additional legal disclaimers required in your state here.*
