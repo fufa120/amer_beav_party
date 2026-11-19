@@ -4,22 +4,23 @@ title: "About the American Beaver Party"
 
 ## Who we are
 
-Introduce party and main goals
+**Welcome!** We are the American Beaver Party. We believe in *true democracy*, and we trust in *people* to choose how to govern themselves. The American Beaver Party understands how important it is that *every person* has an equal say in their countries practices. We know that when it comes to the government, the most important opinion is **yours**!
 
-## Our values
+## Our initial values
 
-- **Sample value** Sample Text
-- **Sample value** Sample Text
-- **Sample value** Sample Text
-- **Sample value** Sample Text
+- **Democracy:** We want to transition from a Lockean political philosophy to a Roussoian; which gives the control of Government to the people. Personal restrictions and government direction should be determined by general agreement.
+
+- **Economy:**  We support the transition to an economy that does not expand but rather normalizes in a prosperous position. Our goal is to stabilize interest rates, inflation and Government spending. We want to closely controlled and regulate large corporations, while small businesses operate lais-sez-faire with removal of impediments to production.
+
+- **Energy:** We believe in the nationalization of electrical energy, petroleum industry, aerospace, electronic connectivity (Data Centers) and the pursuit and exploration of artificial intelligence and its use. All systems should be under the control of and for the benefit of the general public.
+
 
 ## Our mission
 
-*Add mission statement here*
+The American Beaver Party strives to protect individual liberty, develop a government that is responsive to the people, create a maintenance based economy, protect the environment and allow the human mind to develop without distraction. 
+
 
 ## Leadership
-
-*Introduce team here.*
 
 | Name | Role |
 |------|------|
@@ -28,5 +29,6 @@ Introduce party and main goals
 
 ## Get involved
 
+We want to hear your voice! Check out our [polling system](poll.qmd) to express your opinions or just offer feedback. Anything is appreciated! 
 Ready to help build? [Join the party](join.qmd) or check the 
 [events calendar](news.qmd).
