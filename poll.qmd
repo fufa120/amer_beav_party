@@ -3,7 +3,7 @@ title: "Ideas & Polls"
 page-layout: article
 ---
 
-Every member has an equal voice. Sign in, share your idea, and vote on proposals from fellow members. Ideas are reviewed by moderators before publication.
+Every individual has an equal voice. Sign in, share your idea, and vote on proposals from fellow members. **Push** a concept or idea to support it. **Sink** a concept to oppose it. Ideas are reviewed by moderators before publication.
 
 ```{=html}
 <style>
@@ -166,9 +166,9 @@ Every member has an equal voice. Sign in, share your idea, and vote on proposals
         i.body ? el("p", { class: "poll-body" }, i.body) : "",
         el("div", { class: "poll-actions" },
           el("button", { class: "poll-btn up" + (mine === 1 ? " active" : ""),
-                         "aria-pressed": String(mine === 1), onclick: () => vote(i.id, 1) }, `▲ Support (${i.up})`),
+                         "aria-pressed": String(mine === 1), onclick: () => vote(i.id, 1) }, `▲ Push (${i.up})`),
           el("button", { class: "poll-btn down" + (mine === -1 ? " active" : ""),
-                         "aria-pressed": String(mine === -1), onclick: () => vote(i.id, -1) }, `▼ Oppose (${i.down})`),
+                         "aria-pressed": String(mine === -1), onclick: () => vote(i.id, -1) }, `▼ Sink (${i.down})`),
           el("span", { class: "poll-score" }, `Net ${i.score > 0 ? "+" : ""}${i.score}`)
         )
       ));
@@ -216,46 +216,6 @@ Every member has an equal voice. Sign in, share your idea, and vote on proposals
 </script>
 ```
 
-## Results at a glance
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-library(httr2)
-library(tidyverse)
-
-key  <- "sb_publishable_-BTZxrU2m7rJMwiIB7a_tA_PSgqWBNp"
-base <- "https://kyczmkoyitspgyaqlqaj.supabase.co/rest/v1/public_ideas"
-
-resp <- request(base) |>
-  req_url_query(select = "id,title,up,down,score", order = "score.desc", limit = 10) |>
-  req_headers(apikey = key) |>
-  req_error(is_error = \(r) FALSE) |>
-  req_perform()
-
-if (resp_status(resp) != 200) {
-  cat("Results are temporarily unavailable.")
-} else {
-  ideas <- resp_body_json(resp, simplifyVector = TRUE)
-
-  if (length(ideas) == 0) {
-    cat("No published ideas yet.")
-  } else {
-    p <- ideas |>
-      mutate(label = str_trunc(title, 45), down = -down) |>
-      pivot_longer(c(up, down), names_to = "vote", values_to = "n") |>
-      ggplot(aes(x = n, y = fct_reorder(label, score), fill = vote)) +
-      geom_col() +
-      scale_fill_manual(values = c(up = "#2e7d4f", down = "#b23b2e"),
-                        labels = c(up = "Support", down = "Oppose"), name = NULL) +
-      labs(x = "Votes", y = NULL, title = "Top ideas") +
-      theme_minimal(base_size = 13) +
-      theme(legend.position = "bottom")
-    print(p)
-  }
-}
-```
 
 *This chart updates each time the site is rebuilt.*
 

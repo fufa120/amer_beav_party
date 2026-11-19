@@ -106,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./platform.html"> 
-<span class="menu-text">Our Platform</span></a>
+<span class="menu-text">Our Beliefs</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./news.html"> 
@@ -131,14 +131,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#results-at-a-glance" id="toc-results-at-a-glance" class="nav-link active" data-scroll-target="#results-at-a-glance">Results at a glance</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -162,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Every member has an equal voice. Sign in, share your idea, and vote on proposals from fellow members. Ideas are reviewed by moderators before publication.</p>
+<p>Every individual has an equal voice. Sign in, share your idea, and vote on proposals from fellow members. <strong>Push</strong> a concept or idea to support it. <strong>Sink</strong> a concept to oppose it. Ideas are reviewed by moderators before publication.</p>
 <style>
   .poll-app { max-width: 820px; margin: 0 auto; }
   .poll-card { background: #fff; border: 1px solid #e3d6c6; border-radius: 12px;
@@ -323,9 +317,9 @@ ul.task-list li input[type="checkbox"] {
         i.body ? el("p", { class: "poll-body" }, i.body) : "",
         el("div", { class: "poll-actions" },
           el("button", { class: "poll-btn up" + (mine === 1 ? " active" : ""),
-                         "aria-pressed": String(mine === 1), onclick: () => vote(i.id, 1) }, `▲ Support (${i.up})`),
+                         "aria-pressed": String(mine === 1), onclick: () => vote(i.id, 1) }, `▲ Push (${i.up})`),
           el("button", { class: "poll-btn down" + (mine === -1 ? " active" : ""),
-                         "aria-pressed": String(mine === -1), onclick: () => vote(i.id, -1) }, `▼ Oppose (${i.down})`),
+                         "aria-pressed": String(mine === -1), onclick: () => vote(i.id, -1) }, `▼ Sink (${i.down})`),
           el("span", { class: "poll-score" }, `Net ${i.score > 0 ? "+" : ""}${i.score}`)
         )
       ));
@@ -371,23 +365,11 @@ ul.task-list li input[type="checkbox"] {
   });
 })();
 </script>
-<section id="results-at-a-glance" class="level2">
-<h2 class="anchored" data-anchor-id="results-at-a-glance">Results at a glance</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="poll_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p><em>This chart updates each time the site is rebuilt.</em></p>
 <hr>
 <p><em>By signing in you agree that your email is used only for login and that your display name appears with ideas you submit. Individual votes are never public.</em></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
