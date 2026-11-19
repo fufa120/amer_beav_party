@@ -38,12 +38,15 @@ Every member has an equal voice. Sign in, share your idea, and vote on proposals
   <div id="poll-auth" class="poll-card"></div>
   <div id="poll-submit" class="poll-card" hidden></div>
   <div id="poll-msg" class="poll-msg" role="status" aria-live="polite"></div>
-  <div class="poll-toolbar">
-    <strong>Member ideas</strong>
-    <select id="poll-sort" class="poll-input" style="width:auto; margin:0;" aria-label="Sort ideas">
-      <option value="score">Top rated</option>
-      <option value="new">Newest</option>
-    </select>
+  <div class="poll-toolbar" style="flex-wrap: wrap; gap: 0.5rem;">
+    <strong id="poll-count">Member ideas</strong>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <select id="poll-cat" class="poll-input" style="width:auto; margin:0;" aria-label="Filter by category"></select>
+      <select id="poll-sort" class="poll-input" style="width:auto; margin:0;" aria-label="Sort ideas">
+        <option value="score">Top rated</option>
+        <option value="new">Newest</option>
+      </select>
+    </div>
   </div>
   <div id="poll-list"></div>
 </div>
@@ -53,7 +56,7 @@ Every member has an equal voice. Sign in, share your idea, and vote on proposals
 (() => {
   const sb = supabase.createClient("https://kyczmkoyitspgyaqlqaj.supabase.co", "sb_publishable_-BTZxrU2m7rJMwiIB7a_tA_PSgqWBNp");
   const $ = (id) => document.getElementById(id);
-  let session = null, myVotes = {}, sortBy = "score";
+  let session = null, myVotes = {}, sortBy = "score", catFilter = "", allIdeas = [];
 
   // Builds DOM nodes; strings are always inserted as plain text, never as HTML.
   function el(tag, props = {}, ...kids) {
@@ -128,19 +131,39 @@ Every member has an equal voice. Sign in, share your idea, and vote on proposals
     );
   }
 
+   function buildCategories(ideas) {
+    const sel = $("poll-cat");
+    const cats = [...new Set(ideas.map((i) => i.category).filter(Boolean))].sort();
+    const options = [el("option", { value: "" }, "All categories"),
+                     ...cats.map((c) => el("option", { value: c }, c))];
+    if (ideas.some((i) => !i.category)) options.push(el("option", { value: "__none__" }, "Uncategorized"));
+    sel.replaceChildren(...options);
+    const valid = catFilter === "" || catFilter === "__none__" || cats.includes(catFilter);
+    catFilter = valid ? catFilter : "";
+    sel.value = catFilter;
+  }
+
   function renderList(ideas) {
     const list = $("poll-list");
     list.replaceChildren();
-    if (!ideas.length) {
-      list.append(el("p", { class: "poll-note" }, "No ideas have been published yet. Be the first to submit one!"));
+    const shown = ideas.filter((i) =>
+      catFilter === "" ? true : catFilter === "__none__" ? !i.category : i.category === catFilter);
+    $("poll-count").textContent = catFilter === ""
+      ? `Member ideas (${shown.length})`
+      : `${shown.length} of ${ideas.length} ideas`;
+    if (!shown.length) {
+      list.append(el("p", { class: "poll-note" },
+        catFilter === "" ? "No ideas have been published yet. Be the first to submit one!"
+                         : "No ideas in this category yet."));
       return;
     }
-    ideas.forEach((i) => {
+    shown.forEach((i) => {
       const mine = myVotes[i.id];
       list.append(el("article", { class: "poll-card" },
+        i.category ? el("span", { class: "poll-tag" }, i.category) : "",
         el("h3", {}, i.title),
         el("p", { class: "poll-meta" }, `by ${i.author_name} · ${new Date(i.created_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}`),
-        el("p", { class: "poll-body" }, i.body),
+        i.body ? el("p", { class: "poll-body" }, i.body) : "",
         el("div", { class: "poll-actions" },
           el("button", { class: "poll-btn up" + (mine === 1 ? " active" : ""),
                          "aria-pressed": String(mine === 1), onclick: () => vote(i.id, 1) }, `▲ Support (${i.up})`),
@@ -156,14 +179,19 @@ Every member has an equal voice. Sign in, share your idea, and vote on proposals
     let q = sb.from("public_ideas").select("*");
     q = sortBy === "new" ? q.order("created_at", { ascending: false })
                          : q.order("score", { ascending: false }).order("created_at", { ascending: false });
-    const { data, error } = await q.limit(100);
-    if (error) return showMsg("Ideas couldn't be loaded right now.", "error");
+    const { data, error } = await q.limit(300);
+    if (error) {
+      console.error(error);
+      return showMsg("Ideas couldn't be loaded: " + (error.message || error.code), "error");
+    }
     myVotes = {};
     if (session) {
       const { data: mine } = await sb.from("votes").select("idea_id,value");
       (mine || []).forEach((v) => { myVotes[v.idea_id] = v.value; });
     }
-    renderList(data || []);
+    allIdeas = data || [];
+    buildCategories(allIdeas);
+    renderList(allIdeas);
   }
 
   async function vote(id, value) {
@@ -178,7 +206,7 @@ Every member has an equal voice. Sign in, share your idea, and vote on proposals
 
   async function refresh() { renderAuth(); renderSubmit(); await load(); }
 
-  $("poll-sort").addEventListener("change", (e) => { sortBy = e.target.value; load(); });
+  $("poll-cat").addEventListener("change", (e) => { catFilter = e.target.value; renderList(allIdeas); });
 
   sb.auth.onAuthStateChange((event, s) => {
     session = s;
